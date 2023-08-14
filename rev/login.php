@@ -13,24 +13,51 @@
   <body>
 
     <?php require '../partitions/_nav.php' ?>
-	<div class="container my-4" style="
-    display: flex;
-    flex-direction: column;">
-		<h1 class="text-center">Login to StoreEase</h1>
-		<form action="/login.php" method="post" style="display: flex; flex-direction:column; align-items: center;">
-			<div class="form-group col-md-4 my-4">
-				<label for="email">Email address</label>
-				<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
-				<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-			</div>
-			<div class="form-group col-md-4">
-				<label for="password">Password</label>
-				<input type="password" class="form-control" id="password1" name="password">
-			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
-		</form>
-	</div>
-    
+    <link rel="stylesheet" href="styles/login.css">
+    <section>
+
+      <div class="imgBox">
+        <img src="https://pixabay.com/get/gc3692cfa8f3f9cef577ab95f9915cea3d41b7b68f11bb9ad38ac98ee0a32f316aa56563c27327f301b10ce0ecc12ba21.jpg" alt="Truck parked at a garage">
+      </div>
+  
+      <div class="contentBox">
+        <div class="formBox">
+          <h2 class="text-center">Login to StoreEase</h2>
+          <form role="form" class="form-horizontal">
+
+            <div class="inputBox">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+
+            <div class="inputBox">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" name="password">
+            </div>
+
+            <div class="remember">
+              <label style="display: flex;
+              flex-direction: row;
+              align-items: center;
+              font-size: 14">
+                <input type="checkbox" for="remember me">Remember me</label>
+              </label>
+            </div>
+
+            <div class="submit">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+            <div class="createAcc">
+            <label>
+                  <p>Don't have an account? <a href="/rev/signup.php">Create one.</a> </p>
+              </label>
+            </div>
+        </div>
+        </form>
+      </div>
+    </section>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
