@@ -1,3 +1,23 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html{
+    margin:0;
+    padding:0;
+    max-height:100vh;
+    overflow:hidden;
+  }
+  
+  body {
+    background: rgba(1, 1, 1, 0);
+    height: 100%;
+  }
+
 section{
     position: relative;
     width:100%;
@@ -7,8 +27,12 @@ section{
 
 section .imgBox {
     position: relative;
-    height: 100%;
     width: 50%;
+    height: 100%;
+}
+
+#loom-companion-mv3{
+    visibility: hidden;
 }
 
 section .imgBox::before {
@@ -24,7 +48,9 @@ section .imgBox::before {
 }
 
 section .imgBox img {
-    position:absolute;
+    display: flex;
+    position:relative;
+    justify-content: center;
     top:0%;
     left:0%;
     height: 100%;
@@ -32,9 +58,23 @@ section .imgBox img {
     object-fit:cover;
 }
 
+section .imgBox .text {
+    position: absolute;
+    top: 10%;
+    width: 50%;
+    left: 10%;
+    color: #000000;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 70px;
+    text-transform: uppercase;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 5px;
+}
+
 section .contentBox {
     display: flex;
-    justify-items:center;
+    justify-content:center;
     align-items: center;
     width:50%;
     height:100%;
@@ -42,12 +82,12 @@ section .contentBox {
 
 section .contentBox .formBox{
     width: 50%;
-    padding: auto;
-    left: 60%;
 }
 
 section .contentBox h2{
     color: #008080;
+    font-weight: 600;
+    font-size: 1.5em;
     text-transform: uppercase;
     margin-bottom: 20px;
     border-bottom: 4px solid tan;
@@ -71,4 +111,59 @@ section .contentBox input[class="form-control"]{
     color: aqua;
     background: transparent;
     border-radius: 30px;
+}
+
+section .contentBox .submit button {
+    background: rgb(0, 183, 255);
+    color: black;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+section .contentBox .submit button:hover {
+    background: cornflowerblue;
+}
+
+section .contentBox .formBox .remember {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    align-items: center;
+    font-size: 14
+}
+
+section .contentBox .createAcc p {
+    color: black;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+
+@media (max-width:1170px) {
+    section .imgBox {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+    section .contentBox {
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        width:100%;
+        height:100%;
+        z-index: 1;
+    }
+    
+    section .contentBox .formBox{
+        width: 100%;
+        padding: 40px;
+        background: #ffffffe1;
+        margin: 100px;
+        
+    }
 }
