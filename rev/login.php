@@ -1,3 +1,43 @@
+<?php  
+ini_set("display_errors", "1");
+ini_set("display_startup_errors", "1");
+error_reporting(E_ALL);
+	$conn = mysqli_connect('localhost','root','','distributor');
+	$unsuccessfulmsg = '';
+
+	if(isset($_POST["submit"])){
+		$users_phnnum 			= $_POST['number'];
+		$users_password 		= $_POST['password'];
+
+		if(empty($users_phnnum)){
+			$phnmsg = 'Enter your Phone Number.';
+		}else{
+			$phnmsg = '';
+		}
+
+		if(empty($users_password)){
+			$passmsg = 'Enter your password.';
+		}else{
+			$passmsg = '';
+		}
+
+		if(!empty($users_phnnum) && !empty($users_password)){
+			$sql = "SELECT * FROM userinf WHERE phone='$users_phnnum' AND password = '$users_password'";
+			$result = mysqli_query($conn, $sql);
+			$num =  mysqli_num_rows($result);
+			if($num > 0){
+				session_start();
+				$_SESSION['loggedin'] = true;
+				$_SESSION['username'] = $LastName;
+				header("location: index.php");
+			}else{
+				 $unsuccessfulmsg = 'Wrong phone number or Password!';
+			}
+		}
+	}
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -31,12 +71,14 @@
             <div class="inputBox">
                 <label for="number">Phone Number</label>
                 <input type="text" class="form-control" id="number" name="number">
+                <span class="text-danger"><?php if(isset($_POST['submit'])){ echo $phnmsg; }?></span><br>
                 <small id="emailHelp" class="form-text text-muted">We'll never share your number with anyone else.</small>
             </div>
 
             <div class="inputBox">
               <label for="password">Password</label>
               <input type="password" class="form-control" id="password" name="password">
+              <span class="text-danger"><?php if(isset($_POST['submit'])){ echo $passmsg; }?></span><br>
             </div>
 
             <div class="remember">

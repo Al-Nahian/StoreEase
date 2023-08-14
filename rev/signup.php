@@ -2,7 +2,7 @@
 ini_set("display_errors", "1");
 ini_set("display_startup_errors", "1");
 error_reporting(E_ALL);
-include 'partials/_dbconnect.php';
+include '../partitions/_dbconnect.php';
 ?>
 
 <!doctype html>
@@ -19,7 +19,7 @@ include 'partials/_dbconnect.php';
   </head>
   <body>
 
-    <?php require 'partials/_nav.php' ?>
+    <?php require '../partitions/_nav.php' ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       <strong>Success!</strong> Your account has been created and you can login now.
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">

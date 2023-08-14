@@ -3,12 +3,12 @@
     $server = "localhost";
     $username = "root";
     $password = "";
-    $database = "users";
+    $database = "distributor";
 
     $connect = mysqli_connect($server, $username, $password, $database);
 
     if($connect){
-        echo "success";
+        echo "";
     }
     else
         die("Error");
