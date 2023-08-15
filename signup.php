@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
         }else{
           session_start();
           $_SESSION['loggedin'] = true;
+          $_SESSION['firstname'] = $firstName;
           $_SESSION['username'] = $LastName;
           header("location: index.php");
         }
@@ -88,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                 <input type="text" class="form-control" id="firstName" name="firstName">
             </div>
 
-            
+
             <div class="inputBox">
                 <label for="lastName" style="margin-top: 0.25rem;">Last Name</label>
                 <input type="text" class="form-control" id="lastName" name="lastName">

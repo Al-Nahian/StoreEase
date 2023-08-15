@@ -4,6 +4,13 @@ ini_set("display_startup_errors", "1");
 error_reporting(E_ALL);
 
 $alert = false;
+session_start();
+
+
+if ($_SESSION['loggedin']) {
+  header("location: index.php");
+}
+
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
 	require "partitions/_dbconnect.php";
 	$number 	= $_POST["number"];
@@ -12,17 +19,34 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 		if(!empty($number) && !empty($password)){
 			$sql = "SELECT * FROM userinf WHERE phone='$number' AND password = '$password'";
 			$result = mysqli_query($connect, $sql);
+			$fName = mysqli_query($connect, "SELECT firstName FROM userinf WHERE phone='$number'");
+			$lName = mysqli_query($connect, "SELECT lastName FROM userinf WHERE phone='$number'");
 			$num =  mysqli_num_rows($result);
 			if($num > 0){
-				session_start();
-				$_SESSION['loggedin'] = true;
-				$_SESSION['username'] = $LastName;
-				header("location: index.php");
-			}else{
+        while ($row = mysqli_fetch_assoc($fName)) {
+          $firstName = $row['firstName'];
+          setcookie('firstName', $firstName, time() + (60*60*24*365));
+          while ($row = mysqli_fetch_assoc($lName)) {
+            $lastName = $row['lastName'];
+            setcookie("lastName", $lastName,time() + 60*60*24*365);
+            
+            if (empty($_POST['remember'])) {          
+              setcookie('firstName', $firstName, time() - (60*60*24*365));
+              setcookie("lastName", $lastName,time() - 60*60*24*365);
+            }
+              $_SESSION['loggedin'] = true;
+              $_SESSION['firstname'] = $firstName;
+              $_SESSION['username'] = $lastName;
+
+              header("location: index.php");
+          }
+			  }
+    }else{
 				$alert = true;
 			}
+        }
+				
 		}
-	}
 ?>
 
 
@@ -35,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="rev/styles/style.css">
+    <link rel="stylesheet" href="styles/style.css">
     
     <title>Login</title>
   </head>
@@ -64,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
       <div class="contentBox">
         <div class="formBox">
           <h2>Login to StoreEase</h2>
-          <form method="POST" action="login2.php">
+          <form method="POST" action="login.php">
 
             <div class="inputBox">
                 <label for="number" style="margin-bottom: 0rem">Phone Number</label>
@@ -79,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
             <div class="remember">
               <label>
-                <input type="checkbox" for="remember me"> Remember me</label>
+                <input type="checkbox" for="remember me" name="remember"> Remember me</label>
               </label>
             </div>
 
@@ -89,7 +113,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
             <div class="createAcc">
             <label>
-                  <p>Don't have an account? <a href="/rev/signup.php">Create one.</a> </p>
+                  <p>Don't have an account? <a href="signup.php">Create one.</a> </p>
               </label>
             </div>
         </div>

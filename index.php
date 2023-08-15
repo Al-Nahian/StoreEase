@@ -1,3 +1,15 @@
+<?php 
+    session_start();
+    if ($_SESSION['loggedin']==false) {
+        header("location: login.php");
+    }
+    if (isset($_COOKIE['firstName']))
+     {
+        $firstName = $_COOKIE['firstName'];
+        $lastName = $_COOKIE['lastName'];
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +25,7 @@
     <a href="/orders.php">
         <div class="rounded-overflow-hidden shadow-lg max-w-xl">
         <img src="https://img.icons8.com/fluency/200/create-order.png" alt="create-order" class="w-full"/>
-        
+            <a href="#">Welcome <?php echo($_SESSION['username']) ?></a>
             <div class="px-6 py-6">
                 <div class="font-bold text-xl mb-2">Take Orders</div>
             </div>
