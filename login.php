@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
               $_SESSION['firstname'] = $firstName;
               $_SESSION['username'] = $lastName;
 
-              header("location: index.php");
+              header("location: homepage.php");
           }
 			  }
     }else{
