@@ -59,17 +59,19 @@ section .imgBox img {
 }
 
 section .imgBox .text {
+    display: flex;
     position: absolute;
-    top: 10%;
+    top: 15%;
     width: 50%;
-    left: 10%;
+    left: 15%;
     color: #000000;
     padding: 10px;
     font-weight: bold;
-    font-size: 70px;
+    font-size: 5vw;
     text-transform: uppercase;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 5px;
+    vertical-align: baseline;
 }
 
 section .contentBox {
@@ -163,7 +165,12 @@ section .contentBox .createAcc p {
         width: 100%;
         padding: 40px;
         background: #ffffffe1;
-        margin: 100px;
-        
+        margin: 100px;    
+    }
+
+    
+    section .imgBox .text {
+        visibility: hidden;
     }
 }
+

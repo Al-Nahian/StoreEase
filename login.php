@@ -2,28 +2,16 @@
 ini_set("display_errors", "1");
 ini_set("display_startup_errors", "1");
 error_reporting(E_ALL);
-	$conn = mysqli_connect('localhost','root','','distributor');
-	$unsuccessfulmsg = '';
 
-	if(isset($_POST["submit"])){
-		$users_phnnum 			= $_POST['number'];
-		$users_password 		= $_POST['password'];
+$alert = false;
+if ($_SERVER["REQUEST_METHOD"]=="POST") {
+	require "partitions/_dbconnect.php";
+	$number 	= $_POST["number"];
+	$password 	= $_POST["password"];
 
-		if(empty($users_phnnum)){
-			$phnmsg = 'Enter your Phone Number.';
-		}else{
-			$phnmsg = '';
-		}
-
-		if(empty($users_password)){
-			$passmsg = 'Enter your password.';
-		}else{
-			$passmsg = '';
-		}
-
-		if(!empty($users_phnnum) && !empty($users_password)){
-			$sql = "SELECT * FROM userinf WHERE phone='$users_phnnum' AND password = '$users_password'";
-			$result = mysqli_query($conn, $sql);
+		if(!empty($number) && !empty($password)){
+			$sql = "SELECT * FROM userinf WHERE phone='$number' AND password = '$password'";
+			$result = mysqli_query($connect, $sql);
 			$num =  mysqli_num_rows($result);
 			if($num > 0){
 				session_start();
@@ -31,7 +19,7 @@ error_reporting(E_ALL);
 				$_SESSION['username'] = $LastName;
 				header("location: index.php");
 			}else{
-				 $unsuccessfulmsg = 'Wrong phone number or Password!';
+				$alert = true;
 			}
 		}
 	}
@@ -47,17 +35,27 @@ error_reporting(E_ALL);
 
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="rev/styles/style.css">
     
     <title>Login</title>
   </head>
   <body>
 
-    <?php require '../partitions/_nav.php' ?>
+    <?php require 'partitions/_nav.php' ?>
+    <?php
+    if ($alert == true){
+        echo '
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <a href="login.php" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Error! </strong>Wrong user number or password! Try logging in again.
+    </div>';
+    
+    }
+    ?>
     <section>
 
       <div class="imgBox">
-        <img src="https://pixabay.com/get/gc3692cfa8f3f9cef577ab95f9915cea3d41b7b68f11bb9ad38ac98ee0a32f316aa56563c27327f301b10ce0ecc12ba21.jpg" alt="Truck parked at a garage">
+        <img src="img/bg.jpg" alt="Truck parked at a garage">
         <div class="text">
           <p>No. 1 Distributing App of Bangladesh!</p>
         </div>
@@ -66,19 +64,17 @@ error_reporting(E_ALL);
       <div class="contentBox">
         <div class="formBox">
           <h2>Login to StoreEase</h2>
-          <form method="post">
+          <form method="POST" action="login2.php">
 
             <div class="inputBox">
-                <label for="number">Phone Number</label>
-                <input type="text" class="form-control" id="number" name="number">
-                <span class="text-danger"><?php if(isset($_POST['submit'])){ echo $phnmsg; }?></span><br>
-                <small id="emailHelp" class="form-text text-muted">We'll never share your number with anyone else.</small>
+                <label for="number" style="margin-bottom: 0rem">Phone Number</label>
+                <small id="NumberHelp" class="form-text text-muted" style="margin-top: 0rem; margin-bottom: 5px; font-size:smaller;">We'll never share your number with anyone else.</small>
+                <input type="text" class="form-control" id="number" name="number" required>
             </div>
 
             <div class="inputBox">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" id="password" name="password">
-              <span class="text-danger"><?php if(isset($_POST['submit'])){ echo $passmsg; }?></span><br>
+              <label for="password" style="margin-top: 0.5rem;">Password</label>
+              <input type="password" class="form-control" id="password" name="password" required>
             </div>
 
             <div class="remember">
@@ -88,7 +84,7 @@ error_reporting(E_ALL);
             </div>
 
             <div class="submit">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" name="submit" class="btn btn-primary">Login</button>
             </div>
 
             <div class="createAcc">

@@ -1,145 +1,126 @@
-<?php
+<?php  
+ini_set("display_errors", "1");
+ini_set("display_startup_errors", "1");
+error_reporting(E_ALL);
+$alert = false;
+$p_alert = false;
+if ($_SERVER["REQUEST_METHOD"]=="POST") {
+	require "partitions/_dbconnect.php";
+  $firstName = $_POST["firstName"];
+  $lastName = $_POST["lastName"];
+	$number 	= $_POST["number"];
+  $cpassword  = $_POST["cpassword"];
+	$password 	= $_POST["password"];
 
-$conn = new mysqli( 'localhost','root','','distributor');
-if(!$conn){
-    echo 'not connect';
-}
-
-if ( isset($_POST["submit"]) ){
-
-//require_once('connect.php');
-$FirstName=$_POST['FirstName'];
-$LastName=$_POST['LastName'];
-$phone=$_POST['phone'];
-$password=$_POST['password'];
-$cpass = $_POST['psw-repeat'];
-
-if ($password==$cpass) {
-  $query1 = "INSERT INTO userinf(FirstName,
-                                  LastName,
-                                  phone,
-                                  passWord)
-      VALUES (
-          '$FirstName',
-          '$LastName',
-          '$phone',
-          '$password'
-      )";
-
-      if( $conn->query($query1) == TRUE){
-        echo 'data  inserted';
-        session_start();
-        $_SESSION['loggedin'] = true;
-        $_SESSION['username'] = $LastName;
-        header("location: index.php");
-      }else{
-          echo 'data not inserted';
+		if(!empty($number) && !empty($password)){
+      if($password == $cpassword){
+        $sql = "SELECT * FROM userinf WHERE phone='$number'";
+        $result = mysqli_query($connect, $sql);
+        $num =  mysqli_num_rows($result);
+        if($num > 0){
+          $alert = true;
+        }else{
+          session_start();
+          $_SESSION['loggedin'] = true;
+          $_SESSION['username'] = $LastName;
+          header("location: index.php");
+        }
+      }else {
+        $p_alert = true;
       }
-  }
-  else {
-    echo 'Passwords do not match!';
-  }
-}
+		}
+	}
 ?>
 
-<!DOCTYPE html>
-<html>
-<style>
-
-body {font-family: Arial, Helvetica, sans-serif;
-  background-color: #95A5A6;}
 
 
-/* Full-width input fields */
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-input[type=text], input[type=password] {
-  width: 32%;
-  padding: 10px;
-  margin: 5px 0 22px 0;
-  border: 2px solid black;
-  background: #f1f1f1 ;
-}
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css">
+    
+    <title>Signup</title>
+  </head>
+  <body>
 
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
+    <?php require 'partitions/_nav.php' ?>
+
+    <?php
+    if ($alert == true){
+        echo '
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <a href="signup.php" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Error! </strong>User already exists! Log in <a href="login.php">here.</a>
+    </div>';
+    
+    } elseif ($p_alert == true){
+      echo '
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <a href="signup.php" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Error! </strong>Passwords do not match! Try again!
+  </div>';
   
-}
+  }
+    ?>
 
-/* Set a style for all buttons */
-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px;
-  margin: 8px 0;
-  border: 2px solid black;
-  cursor: pointer;
-  width: 25%;
-  opacity: 0.9;
-}
+    <section>
 
-button:hover {
-  opacity:1;
-}
+      <div class="imgBox">
+        <img src="img/bg.jpg" alt="Truck parked at a garage">
+        <div class="text">
+          <p>No. 1 Distributing App of Bangladesh!</p>
+        </div>
+      </div>
 
-/* Float cancel and signup buttons and add an equal width */
-.signupbtn {
-  float: left;
-}
+      <div class="contentBox">
+        <div class="formBox">
+          <h2>Signup to StoreEase</h2>
+          <form method="POST">
 
-/* Add padding to container elements */
-.container {
-  padding: 35px;
-}
+            <div class="inputBox">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName">
+            </div>
 
+            <div class="inputBox">
+                <label for="lastName" style="margin-top: 0.25rem;">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="lastName">
+            </div>
 
-</style>
+            <div class="inputBox">
+                <label for="number" style="margin-bottom: 0rem; margin-top: 0.25rem">Phone Number</label>
+                <small id="NumberHelp" class="form-text text-muted" style="margin-top: 0rem; margin-bottom: 5px; font-size:smaller;">We'll never share your number with anyone else.</small>
+                <input type="text" class="form-control" id="number" name="number">
+            </div>
 
-<body>
+            <div class="inputBox">
+              <label for="password" style="margin-top: 0.5rem;">Password</label>
+              <input type="password" class="form-control" id="password" name="password">
+            </div>
 
-<form action="" method="POST">
-  <div class="container">
-    <h1>Sign Up</h1>
-    <p>Please fill in this form to create an account.</p>
-    <hr>
+            <div class="inputBox">
+              <label for="cpassword" style="margin-top: 0.5rem;">Confirm Password</label>
+              <input type="password" class="form-control" id="cpassword" name="cpassword">
+            </div>
 
-    <label for="FirstName"><b>FirstName </b></label><br>
-    <input type="text" placeholder="Enter FirstName" name="FirstName" required>
-    <br>
+            <div class="submit" style="margin-top: 0.5rem;">
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+            </div>
 
-    <label for="LastName"><b>LastName </b></label>
-    <br>
-    <input type="text" placeholder="Enter Last Name" name="LastName" required>
-    <br>
-
-    <label for="phone"><b>Phone Number </b></label><br>
-    <input type="text" placeholder="Enter Phone Number" name="phone" required>
-    <br>
-
-    <label for="password"><b>Password </b></label><br>
-    <input type="password" placeholder="Enter Password" name="password" required>
-    <br>
-
-    <label for="psw-repeat"><b>Confirm Password</b></label><br>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-    <br>
-
-    <label>
-    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-    </label>
-
-    <div class="mt-1 pb-2">
-		<button name="submit" class="btn btn-success">Sign In</button>
-		</div>
-
-    <div class="mt-1 pb-2">
-      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-
-		<b>	Alrady have an account? <a href="login1.php" class="text-decoration-none">Login</a></b>
-		</div>
-  </div>
-</form>
-</body>
+            <div class="createAcc">
+            <label>
+                  <p>Already have an account? <a href="/login.php">Login.</a> </p>
+              </label>
+            </div>
+        </div>
+        </form>
+      </div>
+    </section>
+  </body>
 </html>
