@@ -88,6 +88,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                 <input type="text" class="form-control" id="firstName" name="firstName">
             </div>
 
+            
             <div class="inputBox">
                 <label for="lastName" style="margin-top: 0.25rem;">Last Name</label>
                 <input type="text" class="form-control" id="lastName" name="lastName">
