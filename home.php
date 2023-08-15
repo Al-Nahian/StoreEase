@@ -3,7 +3,7 @@
 <html>
 <head>
 <title> Distributor_home </title>
-<link rel="stylesheet" type="text/css" href="homee.css"> <!-- css file link -->
+<link rel="stylesheet" type="text/css" href="styles/homee.css"> <!-- css file link -->
 </head>
 <body>
 
