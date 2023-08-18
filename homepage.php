@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    if ($_SESSION['loggedin']==false) {
+    if (!isset($_SESSION['loggedin'])) {
         header("location: login.php");
     }
     if (isset($_COOKIE['firstName']))
@@ -18,9 +18,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    
+  <title>Dashboard</title>
 </head>
-<body class="bg-emerald-100">
+<body class="bg-white-100">
 
 <?php require 'partitions/_navi.php' ?>
 
@@ -43,16 +43,16 @@
   <fieldset class="border-t border-t-slate-900 ">
   </fieldset>
   </div>
-<div class="max-w-[1320px] mx-auto py-10">
+<div class="max-w-[1070px] mx-auto py-10">
   
-  <div class="max-w-[1320px] mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-28">
+  <div class="max-w-[1070px] mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-28">
 
 <a href="https://www.facebook.com">
     <div class="text-center shadow-lg bg-blue-200 rounded-2xl">
       <div class="overflow-hidden">
       <img src="img/inventory.png" class=" hover:scale-125 duration-1000"/>
       </div>
-      <h3 class="py-2 text-2xl">Inventory</h3>
+      <div class="font-bold text-xl mb-2">Inventory</div>
     </div> 
 </a>
 
@@ -62,7 +62,7 @@
       <div class="overflow-hidden rounded-2xl">
       <img src="img/daily-report.png" class="hover:scale-125 duration-1000"/>
       </div>
-      <h3 class="py-2 text-2xl">Daily Report</h3>
+      <div class="font-bold text-xl mb-2">Daily Report</div>
     </div></a>
 
        <a href="https://www.facebook.com">
@@ -70,7 +70,7 @@
       <div class="overflow-hidden">
       <img src="img/businessman.png" class="hover:scale-125 duration-1000"/>
       </div>
-      <h3 class="py-2 text-2xl">DSR</h3>
+      <div class="font-bold text-xl mb-2">DSR</div>
     </div></a>
 
 
@@ -79,7 +79,7 @@
         <div class="overflow-hidden">
         <img src="img/order.png" class="hover:scale-125 duration-1000"/>
         </div>
-      <h3 class="py-2 text-2xl">Order</h3>
+        <div class="font-bold text-xl mb-2">Orders</div>
          </div>
          </a>
   </div>

@@ -3,12 +3,20 @@ ini_set("display_errors", "1");
 ini_set("display_startup_errors", "1");
 error_reporting(E_ALL);
 
+$id = '';
+$pass = '';
 $alert = false;
 session_start();
 
 
-if ($_SESSION['loggedin']) {
-  header("location: index.php");
+if (isset($_SESSION['loggedin'])) {
+    header("location: homepage.php");
+}
+
+
+if (isset($_COOKIE["number"]) && isset($_COOKIE["password"])) {
+  $id = $_COOKIE["number"];
+  $pass = $_COOKIE["password"];
 }
 
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
@@ -25,19 +33,19 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 			if($num > 0){
         while ($row = mysqli_fetch_assoc($fName)) {
           $firstName = $row['firstName'];
-          setcookie('firstName', $firstName, time() + (60*60*24*365));
+          setcookie('number', $number, time() + (60*60*24*365));
           while ($row = mysqli_fetch_assoc($lName)) {
             $lastName = $row['lastName'];
-            setcookie("lastName", $lastName,time() + 60*60*24*365);
+            setcookie("password", $password, time() + 60*60*24*365);
             
             if (empty($_POST['remember'])) {          
-              setcookie('firstName', $firstName, time() - (60*60*24*365));
-              setcookie("lastName", $lastName,time() - 60*60*24*365);
+              setcookie("number", $number, time() - (60*60*24*365));
+              setcookie("password", $password, time() - 60*60*24*365);
             }
               $_SESSION['loggedin'] = true;
               $_SESSION['firstname'] = $firstName;
               $_SESSION['username'] = $lastName;
-
+              
               header("location: homepage.php");
           }
 			  }
@@ -93,12 +101,12 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
             <div class="inputBox">
                 <label for="number" style="margin-bottom: 0rem">Phone Number</label>
                 <small id="NumberHelp" class="form-text text-muted" style="margin-top: 0rem; margin-bottom: 5px; font-size:smaller;">We'll never share your number with anyone else.</small>
-                <input type="text" class="form-control" id="number" name="number" required>
+                <input type="text" class="form-control" id="number" name="number" value="<?php echo $id ?>" required>
             </div>
 
             <div class="inputBox">
               <label for="password" style="margin-top: 0.5rem;">Password</label>
-              <input type="password" class="form-control" id="password" name="password" required>
+              <input type="password" class="form-control" id="password" name="password" value="<?php echo $pass ?>" required>
             </div>
 
             <div class="remember">
