@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
     <?php
     if ($alert == true){
         echo '
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" style= "margin: 0">
             <a href="login.php" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             <strong>Error! </strong>Wrong user number or password! Try logging in again.
     </div>';

@@ -20,6 +20,8 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
         if($num > 0){
           $alert = true;
         }else{
+          $sql = "INSERT INTO `userinf` (`FirstName`, `LastName`, `phone`, `password`, `serial`) VALUES ('$firstName', '$lastName', '$number', '$password', NULL);";
+          $result = mysqli_query($connect, $sql);
           session_start();
           $_SESSION['loggedin'] = true;
           $_SESSION['firstname'] = $firstName;
@@ -55,14 +57,14 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
     <?php
     if ($alert == true){
         echo '
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" style= "margin: 0">
             <a href="signup.php" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             <strong>Error! </strong>User already exists! Log in <a href="login.php">here.</a>
     </div>';
     
     } elseif ($p_alert == true){
       echo '
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <div class="alert alert-danger alert-dismissible fade show" role="alert" style= "margin: 0">
           <a href="signup.php" class="close" data-dismiss="alert" aria-label="close">&times;</a>
           <strong>Error! </strong>Passwords do not match! Try again!
   </div>';
@@ -117,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
             <div class="createAcc">
             <label>
-                  <p>Already have an account? <a href="/login.php">Login.</a> </p>
+                  <p>Already have an account? <a href="login.php">Login.</a> </p>
               </label>
             </div>
         </div>
