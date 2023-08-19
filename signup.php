@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
           $_SESSION['loggedin'] = true;
           $_SESSION['firstname'] = $firstName;
           $_SESSION['username'] = $LastName;
-          header("location: index.php");
+          header("location: homepage.php");
         }
       }else {
         $p_alert = true;
