@@ -54,5 +54,8 @@
         </form>
       </div>
     </section>
+        
+    <!-- Footer -->
+    <?php require 'partitions/_footer.php' ?>
   </body>
 </html>

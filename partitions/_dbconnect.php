@@ -6,10 +6,5 @@
     $database = "distributor";
 
     $connect = mysqli_connect($server, $username, $password, $database);
-
-    if($connect){
-        echo "";
-    }
-    else
-        die("Error");
+    
 ?>

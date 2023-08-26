@@ -25,8 +25,8 @@
 <?php require 'partitions/_navi.php' ?>
 
 <div >
-<div class=" h-40 w-40 px">
-  <div class="absolute top-12 left-9 py-5">
+<div class=" h-40 w-40 px-10">
+  <div class="absolute top-12 left-8 py-5">
     <img class="rounded-full h-28 w-28 " src="img/profile.png" alt="">
   </div>
 </div>
@@ -47,7 +47,7 @@
   
   <div class="max-w-[1070px] mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-28">
 
-<a href="https://www.facebook.com">
+<a href="inventory.php">
     <div class="text-center shadow-lg bg-blue-200 rounded-3xl">
       <div class="overflow-hidden">
       <img src="img/inventory.png" class=" hover:scale-125 duration-500"/>
@@ -74,7 +74,7 @@
     </div></a>
 
 
-        <a href="https://www.facebook.com">
+        <a href="order.php">
         <div class="text-center shadow-lg bg-red-200 rounded-3xl">
         <div class="overflow-hidden">
         <img src="img/order.png" class="hover:scale-125 duration-500"/>
@@ -87,6 +87,9 @@
    </div>
 
 </div>
+
+<!-- Footer -->
+<?php require 'partitions/_footer.php' ?>
 </body>
 </html>
 

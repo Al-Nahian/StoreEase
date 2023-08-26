@@ -48,7 +48,7 @@
           $user = $_SESSION['firstname'];
           $user1 = $_SESSION['username'];
         ?>
-        <a href="#" class="text-gray-300 px-1 py-2 text-sm font-medium"><?php echo ($user); ?> <?php echo ($user1); ?></a>
+        <a href="#" class="text-gray-300 px-1 py-2 text-sm font-medium"> <?php echo ($user); ?> <?php echo ($user1); ?></a>
         </div>
       </div>
     </div>
