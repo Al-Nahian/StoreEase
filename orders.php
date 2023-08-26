@@ -4,9 +4,25 @@
       header("location: login.php");
   }
   require "partitions/_dbconnect.php";
-  $sql = "SELECT * FROM inventory";
+ 
+  $start = 0;
+  $rows_per_page = 5;
+
+  $sql1 = "SELECT * FROM inventory";
+	$records = mysqli_query($connect, $sql1);
+
+	$num =  mysqli_num_rows($records);
+
+  $pages = ceil($num / $rows_per_page);
+
+  if (isset($_GET['page'])) {
+      $page = $_GET['page'] - 1;
+      $start = $page * $rows_per_page;
+  }
+
+  
+  $sql = "SELECT * FROM inventory LIMIT $start, $rows_per_page";
 	$result = mysqli_query($connect, $sql);
-	$num =  mysqli_num_rows($result);
 
 ?>
 
@@ -38,65 +54,31 @@
                     <h5 style="font-size:1.5vw; font-weight: 700;"><?php echo $row["product-name"] ?></h5>
                     <div class="mt-1 mb-1 spec-1"><span>Brand</span><span class="dot"></span><span>Category</span><span class="dot"></span><span>Volume<br></span></div>
                     <div class="mt-1 mb-1 spec-1"><span>N/A</span><span class="dot"></span><span>N/A</span><span class="dot"></span>N/A<span><br></span></div>
-                    <p class="text-justify text-truncate para mb-0">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.<br><br></p>
+                    <p class="text-justify text-truncate para mb-0">
+                    <?php if ($row["Stock"]>0) {
+                        echo "This item is available and in stock right now.";
+                    } else {
+                        echo "This item is out of stock.";
+                    }
+                    ?><br></p>
                 </div>
                 <div class="align-items-center align-content-center col-md-3 border-left mt-1">
                     <div class="d-flex flex-row align-items-center" style="justify-content: center;">
-                        <h4 class="mr-1" style="font-weight: 700;">৳ <?php echo $row["rate"] ?> TK </h4>
+                        <h4 class="mr-1" style="font-weight: 700; font-size: 1.5vw">৳ <?php echo $row["rate"] ?> TK </h4>
+                    </div><br>
+                    <h4 class="mr-1" style="text-align: center;">In-Stock : <?php echo $row["Stock"] ?> items</h4>
+                    <div class="d-flex flex-column mt-4 justify-center"> 
+                    <p class="text-center">Quantity : </p><input class="w-16 h-7 mx-24 pt-1" value="1" type="number" style="text-align: center;">
+                        
+                        <button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to cart</button>
                     </div>
-                    <div class="d-flex flex-column mt-4"><button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to cart</button></div>
                 </div>
             </div>
             <?php }?>
         </div>
     </div>
-
+                <?php require 'partitions/_pages.php' ?>
 </div>
-            
-            
-            
-            
-            
-            
-            
-            <!-- <table>
-                    
-                    <tbody class="font-medium">
-                        <tr>
-                            <?php
-                            while($row = mysqli_fetch_assoc($result)) {
-                                ?>
-                                
-                                <td class="text-center">
-                                    <div class="col-md-3 mt-1">
-                                    <?php echo $row["serial"] ?>
-                                    </div> 
-                                </td>
-                                
-                                <td class="text-center">
-                                    <div class="col-md-6 mt-1">
-                                    <h5> </h5>
-                                    </div>
-                                </td>
-                                
-                                <td class="text-center">
-                                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                                        <div class="d-flex flex-row align-items-center">
-                                            <h4 class="mr-1"></h4>
-                                        </div>
-                                         <div class="d-flex flex-column mt-4"><button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to cart</button></div>
-                                    </div>
-                                </td>
-                        </tr>
-                                <?php
-                            }
-                            ?>
-                    </tbody>
-                </table> -->
-            <!-- </div>
-        </div>
-    </div>
-</div> -->
 <!-- Footer -->
 <?php require 'partitions/_footer.php' ?>
 </body>

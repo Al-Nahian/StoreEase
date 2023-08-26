@@ -77,7 +77,7 @@
         <a href="orders.php">
         <div class="text-center shadow-lg bg-red-200 rounded-3xl">
         <div class="overflow-hidden">
-        <img src="img/order.png" class="hover:scale-125 duration-500"/>
+        <img src="img/order2.png" class="hover:scale-125 duration-500"/>
         </div>
         <div class="font-bold text-xl mb-2">Orders</div>
          </div>

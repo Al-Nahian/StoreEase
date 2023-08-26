@@ -4,10 +4,25 @@
       header("location: login.php");
   }
   require "partitions/_dbconnect.php";
-  $sql = "SELECT * FROM inventory";
-	$result = mysqli_query($connect, $sql);
-	$num =  mysqli_num_rows($result);
+  
+  $start = 0;
+  $rows_per_page = 10;
 
+  $sql1 = "SELECT * FROM inventory";
+	$records = mysqli_query($connect, $sql1);
+
+	$num =  mysqli_num_rows($records);
+
+  $pages = ceil($num / $rows_per_page);
+
+  if (isset($_GET['page'])) {
+      $page = $_GET['page'] - 1;
+      $start = $page * $rows_per_page;
+  }
+
+  
+  $sql = "SELECT * FROM inventory LIMIT $start, $rows_per_page";
+	$result = mysqli_query($connect, $sql);
 ?>
 
 
@@ -18,7 +33,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <title>Inventory</title>
 </head>
+
 <body style="background-color: #99bbff">
   
 <?php require 'partitions/_navi.php' ?>
@@ -67,8 +84,9 @@
 </div>
 
     </table>
-</section>
 
+</section>
+<?php require 'partitions/_pages.php' ?>
 <!-- <div class=" container pt-5">
 <button class="container rounded-full bg-cyan-300 text-2xl px-10 py-2">Add Items</button>
 </div> -->
