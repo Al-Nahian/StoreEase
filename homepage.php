@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <title>Dashboard</title>
 </head>
-<body class="bg-white-100">
+<body style="background-color: #99bbff">
 
 <?php require 'partitions/_navi.php' ?>
 
@@ -74,7 +74,7 @@
     </div></a>
 
 
-        <a href="order.php">
+        <a href="orders.php">
         <div class="text-center shadow-lg bg-red-200 rounded-3xl">
         <div class="overflow-hidden">
         <img src="img/order.png" class="hover:scale-125 duration-500"/>
@@ -83,7 +83,10 @@
          </div>
          </a>
   </div>
-   
+  <div class="py-7">
+  <fieldset class="border-t border-t-slate-900 ">
+  </fieldset>
+  </div>
    </div>
 
 </div>
