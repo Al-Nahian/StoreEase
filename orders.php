@@ -37,18 +37,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Order Item</title>
 </head>
-<body style="background-color: #99bbff">
+<body class="bg-gray-800">
     
 <?php require 'partitions/_navi.php' ?>
 
-<h1 class="text-center font-bold text-6xl">Order Items</h1>
+<h1 class="text-center font-bold text-6xl text-white">Order Items</h1>
 <div class="container mt-5 mb-5">
     <div class="d-flex justify-content-center row">
         <div class="col-md-10">
         <?php
             while($row = mysqli_fetch_assoc($result)) {
         ?>
-            <div class="row p-2 bg-white border rounded">
+            <div class="row p-2 bg-gray-800 text-white border rounded">
                 <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" style="height: 7vw; width: 7vw" src="http://3.bp.blogspot.com/-dmvPv7gCNQw/VZV1cDCvzlI/AAAAAAAAEF4/t-6xUTggF8w/s1600/Missing_Icon.png"></div>
                 <div class="col-md-6 mt-1">
                     <h5 style="font-size:1.5vw; font-weight: 700;"><?php echo $row["product-name"] ?></h5>
@@ -68,9 +68,9 @@
                     </div><br>
                     <h4 class="mr-1" style="text-align: center;">In-Stock : <?php echo $row["Stock"] ?> items</h4>
                     <div class="d-flex flex-column mt-4 justify-center"> 
-                    <p class="text-center">Quantity : </p><input class="w-16 h-7 mx-24 pt-1" value="1" type="number" style="text-align: center;">
+                    <p class="text-center">Quantity : </p><input class="text-black w-16 h-7 mx-24 pt-1" value="1" type="number" style="text-align: center;">
                         
-                        <button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to cart</button>
+                        <button class="btn bg-gray-50 font-semibold btn-sm mt-2" type="button">Add to cart</button>
                     </div>
                 </div>
             </div>

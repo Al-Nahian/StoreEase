@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <title>Dashboard</title>
 </head>
-<body style="background-color: #99bbff">
+<body class="bg-gray-800 text-white">
 
 <?php require 'partitions/_navi.php' ?>
 
@@ -48,7 +48,7 @@
   <div class="max-w-[1070px] mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-28">
 
 <a href="inventory.php">
-    <div class="text-center shadow-lg bg-blue-200 rounded-3xl">
+    <div class="text-black text-center shadow-lg bg-blue-200 rounded-3xl">
       <div class="overflow-hidden">
       <img src="img/inventory.png" class=" hover:scale-125 duration-500"/>
       </div>
@@ -58,15 +58,15 @@
 
           <a href="https://www.facebook.com">
 
-      <div class="text-center shadow-lg bg-gray-200 rounded-3xl">
+      <div class="text-black text-center shadow-lg bg-gray-200 rounded-3xl">
       <div class="overflow-hidden rounded-2xl">
       <img src="img/daily-report.png" class="hover:scale-125 duration-500"/>
       </div>
       <div class="font-bold text-xl mb-2">Daily Report</div>
     </div></a>
 
-       <a href="https://www.facebook.com">
-        <div class="text-center shadow-lg bg-orange-200 rounded-3xl">
+       <a href="DSR.php">
+        <div class="text-black text-center shadow-lg bg-orange-200 rounded-3xl">
       <div class="overflow-hidden">
       <img src="img/businessman.png" class="hover:scale-125 duration-500"/>
       </div>
@@ -75,7 +75,7 @@
 
 
         <a href="orders.php">
-        <div class="text-center shadow-lg bg-red-200 rounded-3xl">
+        <div class="text-black text-center shadow-lg bg-red-200 rounded-3xl">
         <div class="overflow-hidden">
         <img src="img/order2.png" class="hover:scale-125 duration-500"/>
         </div>

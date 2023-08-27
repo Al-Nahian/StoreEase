@@ -36,7 +36,7 @@
   <title>Inventory</title>
 </head>
 
-<body style="background-color: #99bbff">
+<body class="bg-gray-800 text-white">
   
 <?php require 'partitions/_navi.php' ?>
 
@@ -48,7 +48,7 @@
 
 <section class=" container con pt-3" >
 <table width="100%" class=" border-slate-400 border table-fixed border-collapse ">
-<thead class="bg-cyan-100  border-y-2 text-center font-bold">
+<thead class="bg-gray-100 text-black border-y-2 text-center font-bold">
 <tr>
 
 <td>Serial</td>
@@ -69,7 +69,7 @@
             <td class="text-center"><?php echo $row["serial"] ?> </td>
             <td class="text-center"><?php echo $row["product-name"] ?> </td>
             <td class="text-center">৳ <?php echo $row["rate"] ?> TK </td>
-            <td class="text-center"><?php echo $row["Stock"] ?> items</td>
+            <td class="text-center"><?php echo $row["Stock"] ?> pieces</td>
       </tr>
             <?php
           }
@@ -79,7 +79,7 @@
    
 
 <div class="relative left-70 pt-4 my-4">
-  <a href="#"><button class="rounded-lg bg-cyan-300 text-3xl font-semibold">Add Items</button>
+  <a href="#"><button class=" rounded-xl bg-gray-50 pb-2 pl-3 pr-3 pt-2 font-medium text-gray-800" type="submit">Add Items</button>
   </a>
 </div>
 
