@@ -15,21 +15,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles/popup.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <title>Document</title>
+  <title>DSR</title>
 </head>
 <body class="bg-gray-800 text-white">
   <?php require "partitions/_navi.php" ?>
 
-  <main class="h-screen w-screen flex-none">
+  <main class="h-screen w-screen flex-none" id="blur">
     <h1 class="pt-5 text-center text-4xl font-bold">DSR</h1>
     <div class="flex justify-center mt-4">
       <div class="flex w-96 rounded-md bg-white">
         <input type="search" name="search" id="search" placeholder="search" 
-        class="focus-outline-none w-full rounded-none bg-transparent py-1 outline-none" 
+        class="focus-outline-none w-full rounded-none bg-transparent py-1 outline-none text-black" 
         style="text-align: center;" onkeyup="searchFun()"/>
-        <button class="m-2 rounded bg-slate-700 px-3 py-2 text-white">search</button>
       </div>
     </div>
     <div class="pt-5 flex justify-center">
@@ -54,7 +54,7 @@
     </div>
     <div>
       <div class="flex justify-end mx-[365px]">
-        <button class="mt-4 rounded-xl bg-gray-50 pb-2 pl-3 pr-3 pt-2 font-medium text-gray-800" type="submit">Add DSR</button>
+        <button class="mt-4 rounded-xl bg-gray-50 pb-2 pl-3 pr-3 pt-2 font-medium text-gray-800" id="popup-show">Add DSR</button>
       </div>
       <br>
       
@@ -62,10 +62,60 @@
     </div>
 
     <?php require "partitions/_footer.php" ?>
-  </main>
 
+  </main>
+  <div class="text-black">
+    <div class="popup">
+      <div class="close-btn">X</div>
+        <div class="form">
+          <h2>Add DSR</h2>
+          <div class="form-element">
+            <label for="name">DSR Name</label>
+            <input type="text" id="name" placeholder="Enter Name"> </div>
+            <div class="form-element">
+              <label
+              for="address">Location</label>
+              <input type="text" id="address" placeholder="Enter Location">
+            </div>
+            <div class="form-element">
+              <label
+              for="days">Days</label>
+            <input type="text" id="days" placeholder="Enter Days">
+          </div>
+          <div class="form-element">
+              <label
+              for="order">Orders Delivered</label>
+            <input type="text" id="orders" placeholder="Enter Number Of Orders Delivered">
+          </div>
+          <div class="form-element">
+            <label for="products">Products</label>
+            <input type="text" id="products" placeholder="Enter Products"> </div>
+            
+          <div class="form-element">
+            <button>Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
 
   <script>
+       document.querySelector("#popup-show").addEventListener("click",function(){
+      document.querySelector(".popup").classList.add("active");
+    });
+
+    document.querySelector(".popup .close-btn").addEventListener("click",function(){
+      document.querySelector(".popup").classList.remove("active");
+    });
+
+    document.querySelector("#popup-show").addEventListener("click",function(){
+    document.querySelector("#blur").classList.add("blur");
+  });
+
+  document.querySelector(".popup .close-btn").addEventListener("click",function(){
+    document.querySelector("#blur").classList.remove("blur");
+  });
+
       const searchFun = () => {
         let filter = document.getElementById('search').value.toUpperCase();
         let myTable = document.getElementById('myTable');

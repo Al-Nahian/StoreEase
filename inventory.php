@@ -55,6 +55,7 @@
 <td>Product</td>
 <td>Price</td>
 <td>In Stock</td>
+<td>Edit Items</td>
 </tr>
 </thead>
 <tbody class="font-medium">
@@ -70,6 +71,7 @@
             <td class="text-center"><?php echo $row["product-name"] ?> </td>
             <td class="text-center">৳ <?php echo $row["rate"] ?> TK </td>
             <td class="text-center"><?php echo $row["Stock"] ?> pieces</td>
+            <td class="text-center"><button>Edit</button></td>
       </tr>
             <?php
           }
