@@ -1,7 +1,7 @@
 
 # StoreEase
 
-A PHP based webside to create a *distribution* webapp to make distributing more easier than before. Through this app, a *Distributor* can control his DSR (Distribution Sales Representatives) employees through this app. The user can also change his employees info, add employees, change inventory items.
+A PHP based webside to create a *distribution* webapp to make distributing more easier than before. Through this app, a *Distributor* can control his DSR (Distribution Sales Representatives) employees through this app. The user can also change his employees info, add employees and add inventory items too.
 
 ## Dependencies
 
