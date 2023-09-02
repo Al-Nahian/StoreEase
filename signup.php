@@ -88,29 +88,29 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
             <div class="inputBox">
                 <label for="firstName">First Name</label>
-                <input type="text" class="form-control" id="firstName" name="firstName">
+                <input type="text" class="form-control" id="firstName" name="firstName" required>
             </div>
 
 
             <div class="inputBox">
                 <label for="lastName" style="margin-top: 0.25rem;">Last Name</label>
-                <input type="text" class="form-control" id="lastName" name="lastName">
+                <input type="text" class="form-control" id="lastName" name="lastName" required>
             </div>
 
             <div class="inputBox">
                 <label for="number" style="margin-bottom: 0rem; margin-top: 0.25rem">Phone Number</label>
                 <small id="NumberHelp" class="form-text text-muted" style="margin-top: 0rem; margin-bottom: 5px; font-size:smaller;">We'll never share your number with anyone else.</small>
-                <input type="text" class="form-control" id="number" name="number">
+                <input type="text" class="form-control" id="number" name="number" required>
             </div>
 
             <div class="inputBox">
               <label for="password" style="margin-top: 0.5rem;">Password</label>
-              <input type="password" class="form-control" id="password" name="password">
+              <input type="password" class="form-control" id="password" name="password" required>
             </div>
 
             <div class="inputBox">
               <label for="cpassword" style="margin-top: 0.5rem;">Confirm Password</label>
-              <input type="password" class="form-control" id="cpassword" name="cpassword">
+              <input type="password" class="form-control" id="cpassword" name="cpassword" required>
             </div>
 
             <div class="submit" style="margin-top: 0.5rem;">
