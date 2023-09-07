@@ -15,9 +15,9 @@ if (!isset($_SESSION['loggedin'])) {
     <title>Document</title>
   </head>
 
-  <body class="h-screen w-screen">
+  <body class="max-h-max w-screen">
     <?php require 'partitions/_navi.php' ?>
-    <main class="bg-slate-800 h-screen w-screen text-white pt-5">
+    <main class="bg-slate-800 max-h-max w-screen text-white pt-5">
       <h1 class="font-bold text-4xl text-center">Daily Report</h1>
       <div class="flex justify-center  pt-5">
         <table width="80%" class="table-fixed border-collapse border ">
@@ -76,10 +76,26 @@ if (!isset($_SESSION['loggedin'])) {
 
             <td rowspan="2" class=" text-center">102000 TK</td>
           </tr>
+          <tr></tr>
+          <tr>
+            <div class="">
+              <td rowspan="2"><img class="rounded-full h-28 mx-12 my-3"
+                  src="https://www.w3schools.com/howto/img_avatar.png" alt="" srcset="" </td>
+            </div>
+
+            <td>
+              <p style="font-size: x-large; padding-bottom: 1.25rem">Mr. Raton Miah</p>
+              <p style="font-size: small;">Orders Completed : 340/350</p>
+            </td>
+
+            <td rowspan="2" class=" text-center">102000 TK</td>
+          </tr>
+          <tr></tr>
+          
         </table>
       </div>
       <div class="font-serif flex text-3xl container mx-60 pt-3 ">Total=
-        <p class="mx-auto mr-68 flex font-normal shadow-md">256,200 TK.
+        <p class="mx-auto mr-52 flex font-normal shadow-md">256,200 TK.
         </p>
       </div>
     </main>
