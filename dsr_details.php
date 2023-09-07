@@ -54,9 +54,9 @@ if (isset($_REQUEST['updateDSR'])) {
             </h1>
             <p class=" text-white text-center text-xl">Distributor sales Representative</p>
             <div class="text-center font-mono">
-              <a href="" class=" mx-1">Call.</a>
-              <a href="" class=" mx-1">Email.</a>
-              <a href="" class="">Massage.</a>
+              <a href="tel:555-555-5555" class=" mx-1">Call.</a>
+              <a href="mailto:dsr@fakeemail.com" class=" mx-1">Email.</a>
+              <a href="sms://555-555-5555?body=This%20is%20a%20fake%20text." class="">Massage.</a>
             </div>
 
             <div style="display: grid;justify-content: center;">
