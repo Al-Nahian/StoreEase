@@ -79,10 +79,11 @@ if (!isset($_SESSION['loggedin'])) {
         </table>
       </div>
       <div class="font-serif flex text-3xl container mx-60 pt-3 ">Total=
-        <p class="mx-auto mr-64 flex font-normal shadow-md">256,200 TK.
+        <p class="mx-auto mr-68 flex font-normal shadow-md">256,200 TK.
         </p>
       </div>
     </main>
+
     <?php require 'partitions/_footer.php' ?>
   </body>
 

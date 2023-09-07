@@ -23,6 +23,16 @@ if (isset($_GET['page'])) {
 
 $sql = "SELECT * FROM inventory LIMIT $start, $rows_per_page";
 $result = mysqli_query($connect, $sql);
+
+if (isset($_REQUEST['addItem'])) {
+  $name = $_POST["name"];
+  $price = $_POST["price"];
+  $stock = $_POST["stock"];
+  $sqlupdate = "INSERT INTO `inventory` (`product-name`, `rate`, `Stock`) 
+    VALUES ('$name', '$price', '$stock')";
+  $newresult = mysqli_query($connect, $sqlupdate);
+  header("Refresh:0");
+}
 ?>
 
 
@@ -83,7 +93,7 @@ $result = mysqli_query($connect, $sql);
                 <td class="text-center">
                   <?php echo $row["Stock"] ?> pieces
                 </td>
-                <td class="text-center"><button>Edit</button></td>
+                <td class="text-center"><a href="edit-item.php?serial=<?php echo $row["serial"]?>">Edit</a></td>
               </tr>
               <?php
               }
@@ -102,40 +112,41 @@ $result = mysqli_query($connect, $sql);
 
       </section>
       <?php require 'partitions/_pages.php' ?>
-      <!-- <div class=" container pt-5">
-    <button class="container rounded-full bg-cyan-300 text-2xl px-10 py-2">Add Items</button>
-    </div> -->
 
       <!-- Footer -->
       <?php require 'partitions/_footer.php' ?>
     </div>
 
+    <!-- Add Items Pop Up -->
 
     <div class="text-black">
       <div class="popup">
         <div class="close-btn">
           X
         </div>
-        <div class="form">
+        <form method="post" class="form">
           <h2>Add Items</h2>
           <div class="form-element">
             <label for="name">Product Name</label>
-            <input type="text" id="name" placeholder="Enter Product Name">
+            <input type="text" id="name" name="name" placeholder="Enter Product Name">
           </div>
           <div class="form-element">
             <label for="price">Price</label>
-            <input type="text" id="price" placeholder="Enter Price">
+            <input type="text" id="price" name="price" placeholder="Enter Price">
           </div>
           <div class="form-element">
             <label for="stock">Stock</label>
-            <input type="text" id="stock" placeholder="Enter Number Of Stock">
+            <input type="text" id="stock" name="stock" placeholder="Enter Number Of Stock">
           </div>
           <div class="form-element">
-            <button>Submit</button>
+            <button name="addItem" >Submit</button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
+
+<!-- Add Items Script -->
+
     <script>
       document.querySelector("#popup-show").addEventListener("click", function () {
         document.querySelector(".popup").classList.add("active");
