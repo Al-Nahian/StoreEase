@@ -91,7 +91,7 @@ if (!isset($_SESSION['loggedin'])) {
             <td rowspan="2" class=" text-center">102000 TK</td>
           </tr>
           <tr></tr>
-          
+
         </table>
       </div>
       <div class="font-serif flex text-3xl container mx-60 pt-3 ">Total=
