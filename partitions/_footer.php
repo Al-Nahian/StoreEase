@@ -1,7 +1,7 @@
 <div class=" bg-gray-900 border-t-[1px]">
     <div class="max-w-2xl mx-auto text-white py-1">
         <div class="text-center">
-            
+
             <div class="flex justify-around my-4 ">
                 <a href="https://play.google.com/">
                     <div class="flex items-center border w-auto rounded-lg px-4 py-2 h-10 ">
@@ -19,7 +19,7 @@
                             <p class='text-xs text-gray-200'>Download on </p>
                             <p class="text-sm md:text-base"> Apple Store </p>
                         </div>
-                    </div> 
+                    </div>
                 </a>
             </div>
         </div>

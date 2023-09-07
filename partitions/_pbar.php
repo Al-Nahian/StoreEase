@@ -1,9 +1,8 @@
-<script defer src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"></script>    
-    
+<script defer src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"></script>
+
 <main class="grid w-full min-h-screen text-gray-100 place-content-center">
 
-    <section x-data="skillDisplay"
-        class="p-1 space-y-2 rounded-xl md:grid md:grid-cols-1 md:gap-4 sm:space-y-0">
+    <section x-data="skillDisplay" class="p-1 space-y-2 rounded-xl md:grid md:grid-cols-1 md:gap-4 sm:space-y-0">
         <div class="grid grid-cols-2 gap-6">
             <template x-for="skill in skills">
                 <button x-text="skill.title"
@@ -31,13 +30,13 @@
     document.addEventListener('alpine:init', () => {
         Alpine.data('skillDisplay', () => ({
             skills: [{
-                    'title': 'Orders Done',
-                    'percent': '65',
-                },
-                {
-                    'title': 'Orders Left',
-                    'percent': '35',
-                },
+                'title': 'Orders Done',
+                'percent': '65',
+            },
+            {
+                'title': 'Orders Left',
+                'percent': '35',
+            },
             ],
             currentSkill: {
                 'title': 'Orders Done',
