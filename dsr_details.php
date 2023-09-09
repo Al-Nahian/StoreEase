@@ -89,7 +89,7 @@ if (isset($_REQUEST['updateDSR'])) {
 
       </div>
       <!-- FOOTER -->
-      <footer style="position: sticky; top: 100%">
+      <footer id="blur-2" style="position: sticky; top: 100%">
         <?php require 'partitions/_footer.php' ?>
       </footer>
       <!-- Pop Up Message -->
@@ -146,18 +146,16 @@ if (isset($_REQUEST['updateDSR'])) {
     <script>
       document.querySelector("#popup-show").addEventListener("click", function () {
         document.querySelector(".popup").classList.add("active");
+        document.querySelector("#blur").classList.add("blur");
+        document.querySelector("#blur-2").classList.add("blur");
+        document.querySelector("#blur-2").style.pointerEvents = "none";
       });
 
       document.querySelector(".popup .close-btn").addEventListener("click", function () {
         document.querySelector(".popup").classList.remove("active");
-      });
-
-      document.querySelector("#popup-show").addEventListener("click", function () {
-        document.querySelector("#blur").classList.add("blur");
-      });
-
-      document.querySelector(".popup .close-btn").addEventListener("click", function () {
         document.querySelector("#blur").classList.remove("blur");
+        document.querySelector("#blur-2").classList.remove("blur");
+        document.querySelector("#blur-2").style.pointerEvents = "auto";
       });
     </script>
 

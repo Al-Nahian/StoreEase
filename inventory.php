@@ -49,7 +49,7 @@ if (isset($_REQUEST['addItem'])) {
     <title>Inventory</title>
   </head>
 
-  <body class="bg-gray-800 text-white" style="min-height: 100vh" >
+  <body class="bg-gray-800 text-white" style="min-height: 100vh">
     <main>
       <?php require 'partitions/_navi.php' ?>
       <div id="blur">
@@ -125,9 +125,9 @@ if (isset($_REQUEST['addItem'])) {
     </main>
 
     <!-- FOOTER -->
-    <footer style="position: sticky; top: 100%" >
-            <?php require 'partitions/_footer.php' ?>
-        </footer>
+    <footer id="blur-2" style="position: sticky; top: 100%">
+      <?php require 'partitions/_footer.php' ?>
+    </footer>
 
 
     <!-- Add Items Pop Up -->
@@ -167,18 +167,18 @@ if (isset($_REQUEST['addItem'])) {
     <script>
       document.querySelector("#popup-show").addEventListener("click", function () {
         document.querySelector(".popup").classList.add("active");
+        document.querySelector("#blur").classList.add("blur");
+        document.querySelector("#blur").style.pointerEvents = "none";
+        document.querySelector("#blur-2").classList.add("blur");
+        document.querySelector("#blur-2").style.pointerEvents = "none";
       });
 
       document.querySelector(".popup .close-btn").addEventListener("click", function () {
         document.querySelector(".popup").classList.remove("active");
-      });
-
-      document.querySelector("#popup-show").addEventListener("click", function () {
-        document.querySelector("#blur").classList.add("blur");
-      });
-
-      document.querySelector(".popup .close-btn").addEventListener("click", function () {
         document.querySelector("#blur").classList.remove("blur");
+        document.querySelector("#blur-2").classList.remove("blur");
+        document.querySelector("#blur-2").style.pointerEvents = "auto";
+        document.querySelector("#blur").style.pointerEvents = "auto";
       });
     </script>
 
