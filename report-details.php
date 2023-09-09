@@ -6,28 +6,27 @@ if (!isset($_SESSION['loggedin'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+    <title>Daily Report</title>
   </head>
 
-  <body class="max-h-max w-screen">
+  <body>
     <?php require 'partitions/_navi.php' ?>
-    <main class="bg-slate-800 max-h-max w-screen text-white pt-5">
+    <main class=" bg-gray-800 min-h-screen min-w-min  pt-5 text-white ">
       <h1 class="font-bold text-4xl text-center">Daily Report</h1>
-      <div class="flex justify-center  pt-5">
-        <table width="80%" class="table-fixed border-collapse border ">
+      <div class="justify-center flex pt-5">
+        <table class="border border-collapse table-fixed container flex-1 ">
+          <tr>
 
-          <tr class="">
-
-            <td rowspan="2"><img class="rounded-full h-28 mx-12 my-3"
+            <td rowspan="2"><img class="rounded-full h-28 mx-12 my-3 "
                 src="https://www.w3schools.com/howto/img_avatar.png"></td>
 
-            <td>
+            <td class="text-center">
               <p style="font-size: x-large; padding-bottom: 1.25rem">Mr. Faridul Islam</p>
               <p style="font-size: small;">Orders Completed : 136/150</p>
             </td>
@@ -36,70 +35,160 @@ if (!isset($_SESSION['loggedin'])) {
           </tr>
           <tr></tr>
           <tr>
-            <div class="">
-              <td rowspan="2"><img class="rounded-full h-28 mx-12 my-3"
-                  src="https://www.w3schools.com/howto/img_avatar.png" alt="" srcset="" </td>
-            </div>
 
-            <td>
-              <p style="font-size: x-large; padding-bottom: 1.25rem">Mr. Arab Ali</p>
-              <p style="font-size: small;">Orders Completed : 257/300</p>
+            <td rowspan="2"><img class="rounded-full h-28 mx-12 my-3 "
+                src="https://www.w3schools.com/howto/img_avatar.png"></td>
+
+            <td class="text-center">
+              <p style="font-size: x-large; padding-bottom: 1.25rem">Mr. Faridul Islam</p>
+              <p style="font-size: small;">Orders Completed : 136/150</p>
             </td>
 
-            <td rowspan="2" class=" text-center">77100 TK</td>
+            <td rowspan="2" class=" text-center">40800 TK</td>
           </tr>
           <tr></tr>
           <tr>
-            <div class="">
-              <td rowspan="2"><img class="rounded-full h-28 mx-12 my-3"
-                  src="https://www.w3schools.com/howto/img_avatar.png" alt="" srcset="" </td>
-            </div>
 
-            <td>
-              <p style="font-size: x-large; padding-bottom: 1.25rem">Mr. Nazrul Islam</p>
-              <p style="font-size: small;">Orders Completed : 121/150</p>
+            <td rowspan="2"><img class="rounded-full h-28 mx-12 my-3 "
+                src="https://www.w3schools.com/howto/img_avatar.png"></td>
+
+            <td class="text-center">
+              <p style="font-size: x-large; padding-bottom: 1.25rem">Mr. Faridul Islam</p>
+              <p style="font-size: small;">Orders Completed : 136/150</p>
             </td>
 
-            <td rowspan="2" class=" text-center">36300 TK</td>
+            <td rowspan="2" class=" text-center">40800 TK</td>
           </tr>
           <tr></tr>
           <tr>
-            <div class="">
-              <td rowspan="2"><img class="rounded-full h-28 mx-12 my-3"
-                  src="https://www.w3schools.com/howto/img_avatar.png" alt="" srcset="" </td>
-            </div>
 
-            <td>
-              <p style="font-size: x-large; padding-bottom: 1.25rem">Mr. Raton Miah</p>
-              <p style="font-size: small;">Orders Completed : 340/350</p>
+            <td rowspan="2"><img class="rounded-full h-28 mx-12 my-3 "
+                src="https://www.w3schools.com/howto/img_avatar.png"></td>
+
+            <td class="text-center">
+              <p style="font-size: x-large; padding-bottom: 1.25rem">Mr. Faridul Islam</p>
+              <p style="font-size: small;">Orders Completed : 136/150</p>
             </td>
 
-            <td rowspan="2" class=" text-center">102000 TK</td>
+            <td rowspan="2" class=" text-center">40800 TK</td>
           </tr>
           <tr></tr>
           <tr>
-            <div class="">
-              <td rowspan="2"><img class="rounded-full h-28 mx-12 my-3"
-                  src="https://www.w3schools.com/howto/img_avatar.png" alt="" srcset="" </td>
-            </div>
 
-            <td>
-              <p style="font-size: x-large; padding-bottom: 1.25rem">Mr. Raton Miah</p>
-              <p style="font-size: small;">Orders Completed : 340/350</p>
+            <td rowspan="2"><img class="rounded-full h-28 mx-12 my-3 "
+                src="https://www.w3schools.com/howto/img_avatar.png"></td>
+
+            <td class="text-center">
+              <p style="font-size: x-large; padding-bottom: 1.25rem">Mr. Faridul Islam</p>
+              <p style="font-size: small;">Orders Completed : 136/150</p>
             </td>
 
-            <td rowspan="2" class=" text-center">102000 TK</td>
+            <td rowspan="2" class=" text-center">40800 TK</td>
+          </tr>
+          <tr></tr>
+          <tr>
+
+            <td rowspan="2"><img class="rounded-full h-28 mx-12 my-3 "
+                src="https://www.w3schools.com/howto/img_avatar.png"></td>
+
+            <td class="text-center">
+              <p style="font-size: x-large; padding-bottom: 1.25rem">Mr. Faridul Islam</p>
+              <p style="font-size: small;">Orders Completed : 136/150</p>
+            </td>
+
+            <td rowspan="2" class=" text-center">40800 TK</td>
+          </tr>
+          <tr></tr>
+          <tr>
+
+            <td rowspan="2"><img class="rounded-full h-28 mx-12 my-3 "
+                src="https://www.w3schools.com/howto/img_avatar.png"></td>
+
+            <td class="text-center">
+              <p style="font-size: x-large; padding-bottom: 1.25rem">Mr. Faridul Islam</p>
+              <p style="font-size: small;">Orders Completed : 136/150</p>
+            </td>
+
+            <td rowspan="2" class=" text-center">40800 TK</td>
+          </tr>
+          <tr></tr>
+          <tr>
+
+            <td rowspan="2"><img class="rounded-full h-28 mx-12 my-3 "
+                src="https://www.w3schools.com/howto/img_avatar.png"></td>
+
+            <td class="text-center">
+              <p style="font-size: x-large; padding-bottom: 1.25rem">Mr. Faridul Islam</p>
+              <p style="font-size: small;">Orders Completed : 136/150</p>
+            </td>
+
+            <td rowspan="2" class=" text-center">40800 TK</td>
+          </tr>
+          <tr></tr>
+          <tr>
+
+            <td rowspan="2"><img class="rounded-full h-28 mx-12 my-3 "
+                src="https://www.w3schools.com/howto/img_avatar.png"></td>
+
+            <td class="text-center">
+              <p style="font-size: x-large; padding-bottom: 1.25rem">Mr. Faridul Islam</p>
+              <p style="font-size: small;">Orders Completed : 136/150</p>
+            </td>
+
+            <td rowspan="2" class=" text-center">40800 TK</td>
+          </tr>
+          <tr></tr>
+          <tr>
+
+            <td rowspan="2"><img class="rounded-full h-28 mx-12 my-3 "
+                src="https://www.w3schools.com/howto/img_avatar.png"></td>
+
+            <td class="text-center">
+              <p style="font-size: x-large; padding-bottom: 1.25rem">Mr. Faridul Islam</p>
+              <p style="font-size: small;">Orders Completed : 136/150</p>
+            </td>
+
+            <td rowspan="2" class=" text-center">40800 TK</td>
+          </tr>
+          <tr></tr>
+          <tr>
+
+            <td rowspan="2"><img class="rounded-full h-28 mx-12 my-3 "
+                src="https://www.w3schools.com/howto/img_avatar.png"></td>
+
+            <td class="text-center">
+              <p style="font-size: x-large; padding-bottom: 1.25rem">Mr. Faridul Islam</p>
+              <p style="font-size: small;">Orders Completed : 136/150</p>
+            </td>
+
+            <td rowspan="2" class=" text-center">40800 TK</td>
+          </tr>
+          <tr></tr>
+          <tr>
+
+            <td rowspan="2"><img class="rounded-full h-28 mx-12 my-3 "
+                src="https://www.w3schools.com/howto/img_avatar.png"></td>
+
+            <td class="text-center">
+              <p style="font-size: x-large; padding-bottom: 1.25rem">Mr. Faridul Islam</p>
+              <p style="font-size: small;">Orders Completed : 136/150</p>
+            </td>
+
+            <td rowspan="2" class=" text-center">40800 TK</td>
           </tr>
           <tr></tr>
 
+
+          <tr class="border">
+            <td class="text-2xl pl-20 font-serif">Total</td>
+            <td class="text-center">=</td>
+            <td class="text-center font-mono text-2xl">256055 TK.</td>
+          </tr>
         </table>
       </div>
-      <div class="font-serif flex text-3xl container mx-60 pt-3 ">Total=
-        <p class="mx-auto mr-52 flex font-normal shadow-md">256,200 TK.
-        </p>
+      <div class="pt-5">
       </div>
     </main>
-
     <?php require 'partitions/_footer.php' ?>
   </body>
 
