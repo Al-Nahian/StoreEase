@@ -29,10 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://cdn.tailwindcss.com"></script>
-        <title>Document</title>
+        <title>Edit Item</title>
     </head>
 
-    <body class="h-screen w-screen">
+    <body class="w-screen" style="min-height: 100vh;" >
 
         <!-- Nav Bar -->
         <?php require 'partitions/_navi.php' ?>
@@ -85,7 +85,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </main>
 
         <!-- FOOTER -->
-        <?php require 'partitions/_footer.php' ?>
+        <footer style="position: sticky; top: 100%" >
+            <?php require 'partitions/_footer.php' ?>
+        </footer>
     </body>
 
 </html>

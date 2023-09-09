@@ -34,7 +34,7 @@ if (isset($_REQUEST['dsrAdd'])) {
     <title>DSR</title>
   </head>
 
-  <body class="bg-gray-800 text-white">
+  <body class="bg-gray-800 text-white" style="min-height: 100vh;" >
     <?php require "partitions/_navi.php" ?>
 
     <main class="h-screen w-screen flex-none" id="blur">
@@ -73,7 +73,8 @@ if (isset($_REQUEST['dsrAdd'])) {
         </table>
       </div>
       <div>
-        <div class="flex justify-end mx-[365px]">
+      
+        <div class="flex justify-center mx-[365px]">
           <button class="mt-4 rounded-xl bg-gray-50 pb-2 pl-3 pr-3 pt-2 font-medium text-gray-800" id="popup-show">Add
             DSR</button>
         </div>
@@ -82,7 +83,10 @@ if (isset($_REQUEST['dsrAdd'])) {
 
       </div>
 
-      <?php require "partitions/_footer.php" ?>
+      <!-- FOOTER -->
+      <footer style="position: sticky; top: 100%" >
+            <?php require 'partitions/_footer.php' ?>
+        </footer>
 
     </main>
     <div class="text-black">

@@ -22,7 +22,7 @@ if (isset($_COOKIE['firstName'])) {
     <title>Dashboard</title>
   </head>
 
-  <body class="bg-gray-800 text-white">
+  <body class="bg-gray-800 text-white" style="min-height: 100vh;" >
 
     <?php require 'partitions/_navi.php' ?>
 
@@ -51,7 +51,7 @@ if (isset($_COOKIE['firstName'])) {
 
         <div class="max-w-[1070px] mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-28">
 
-          <a href="inventory.php">
+          <a href="inventory.php?page=1" class="hover:decoration-transparent" >
             <div class="text-black text-center shadow-lg bg-blue-200 rounded-3xl">
               <div class="overflow-hidden">
                 <img src="img/inventory.png" class=" hover:scale-125 duration-500" />
@@ -60,7 +60,7 @@ if (isset($_COOKIE['firstName'])) {
             </div>
           </a>
 
-          <a href="reports.php">
+          <a href="reports.php" class="hover:decoration-transparent" >
 
             <div class="text-black text-center shadow-lg bg-gray-200 rounded-3xl">
               <div class="overflow-hidden rounded-2xl">
@@ -70,7 +70,7 @@ if (isset($_COOKIE['firstName'])) {
             </div>
           </a>
 
-          <a href="DSR.php">
+          <a href="DSR.php" class="hover:decoration-transparent" >
             <div class="text-black text-center shadow-lg bg-orange-200 rounded-3xl">
               <div class="overflow-hidden">
                 <img src="img/businessman.png" class="hover:scale-125 duration-500" />
@@ -80,7 +80,7 @@ if (isset($_COOKIE['firstName'])) {
           </a>
 
 
-          <a href="orders.php">
+          <a href="orders.php?page=1" class="hover:decoration-transparent" >
             <div class="text-black text-center shadow-lg bg-red-200 rounded-3xl">
               <div class="overflow-hidden">
                 <img src="img/order2.png" class="hover:scale-125 duration-500" />
@@ -97,8 +97,10 @@ if (isset($_COOKIE['firstName'])) {
 
     </div>
 
-    <!-- Footer -->
-    <?php require 'partitions/_footer.php' ?>
+    <!-- FOOTER -->
+    <footer style="position: sticky; top: 100%" >
+            <?php require 'partitions/_footer.php' ?>
+        </footer>
   </body>
 
 </html>

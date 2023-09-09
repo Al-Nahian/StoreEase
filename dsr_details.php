@@ -38,61 +38,62 @@ if (isset($_REQUEST['updateDSR'])) {
     <title>DSR Details</title>
   </head>
 
-  <body class="">
+  <body class="bg-gray-800 text-white" style="min-height: 100vh;">
     <?php require "partitions/_navi.php" ?>
     <div id="blur">
-      <main class="min-h-screen bg-gray-800 text-white">
-        <div class="">
-          <div class="flex justify-center">
-            <img class="w-[160px] rounded-full mt-5 " src="https://www.w3schools.com/howto/img_avatar.png">
-          </div>
-          <?php
-          while ($row = mysqli_fetch_assoc($result)) {
-            ?>
-            <h1 class="text-white text-center mt-2 font-serif">
-              <?php echo $row["name"] ?>
-            </h1>
-            <p class=" text-white text-center text-xl">Distributor sales Representative</p>
-            <div class="text-center font-mono">
-              <a href="tel:555-555-5555" class=" mx-1">Call.</a>
-              <a href="mailto:dsr@fakeemail.com" class=" mx-1">Email.</a>
-              <a href="sms://555-555-5555?body=This%20is%20a%20fake%20text." class="">Massage.</a>
-            </div>
-
-            <div style="display: grid;justify-content: center;">
-              <div class="mt-5 font-semibold mx-4 text-5xl">Products <button
-                  class=" rounded bg-slate-700 px-2 text-2xl mx-a pr-3 mx-52  text-white" id="popup-show">Edit</button>
-              </div>
-              <div class=" pt-2">
-                <p style="max-width: 100ch; word-wrap: break-word;" class="mx-4">
-                  <?php echo $row["products"] ?>
-                </p>
-
-
-              </div>
-              <div class="mt-5 font-semibold mx-4 text-5xl">Locations </div>
-              <div class="pt-2">
-                <p style="max-width: 100ch; word-wrap: break-word;" class="mx-4">
-                  <?php echo $row["address"] ?>
-                </p>
-              </div>
-              <div class="mt-5 font-semibold mx-4 text-5xl">Days</div>
-              <div class="pt-2">
-                <p style="max-width: 100ch; word-wrap: break-word;" class="mx-4">
-                  <?php echo $row["days"] ?>
-                </p>
-                <br><br>
-              </div>
-
-            </div>
+      <div class="">
+        <div class="flex justify-center">
+          <img class="w-[160px] rounded-full mt-5 " src="https://www.w3schools.com/howto/img_avatar.png">
+        </div>
+        <?php
+        while ($row = mysqli_fetch_assoc($result)) {
+          ?>
+          <h1 class="text-white text-center mt-2 font-serif">
+            <?php echo $row["name"] ?>
+          </h1>
+          <p class=" text-white text-center text-xl">Distributor sales Representative</p>
+          <div class="text-center font-mono">
+            <a href="tel:555-555-5555" class=" mx-1">Call.</a>
+            <a href="mailto:dsr@fakeemail.com" class=" mx-1">Email.</a>
+            <a href="sms://555-555-5555?body=This%20is%20a%20fake%20text." class="">Massage.</a>
           </div>
 
-        </main>
-        <?php require "partitions/_footer.php" ?>
+          <div style="display: grid;justify-content: center;">
+            <div class="mt-5 font-semibold mx-4 text-5xl">Products <button
+                class=" rounded bg-slate-700 px-2 text-2xl mx-a pr-3 mx-52  text-white" id="popup-show">Edit</button>
+            </div>
+            <div class=" pt-2">
+              <p style="max-width: 100ch; word-wrap: break-word;" class="mx-4">
+                <?php echo $row["products"] ?>
+              </p>
+
+
+            </div>
+            <div class="mt-5 font-semibold mx-4 text-5xl">Locations </div>
+            <div class="pt-2">
+              <p style="max-width: 100ch; word-wrap: break-word;" class="mx-4">
+                <?php echo $row["address"] ?>
+              </p>
+            </div>
+            <div class="mt-5 font-semibold mx-4 text-5xl">Days</div>
+            <div class="pt-2">
+              <p style="max-width: 100ch; word-wrap: break-word;" class="mx-4">
+                <?php echo $row["days"] ?>
+              </p>
+              <br><br>
+            </div>
+
+          </div>
+        </div>
+
+
       </div>
-
+      <!-- FOOTER -->
+      <footer style="position: sticky; top: 100%">
+        <?php require 'partitions/_footer.php' ?>
+      </footer>
       <!-- Pop Up Message -->
-      
+
       <div class="text-black">
         <div class="popup">
           <div class="close-btn">
@@ -140,8 +141,8 @@ if (isset($_REQUEST['updateDSR'])) {
         </div>
       </div>
       <?php
-          }
-          ?>
+        }
+        ?>
     <script>
       document.querySelector("#popup-show").addEventListener("click", function () {
         document.querySelector(".popup").classList.add("active");

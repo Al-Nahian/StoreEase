@@ -14,7 +14,7 @@
     <title>StoreEase</title>
   </head>
 
-  <body>
+  <body style="min-height: 100vh;" >
 
     <?php require 'partitions/_nav.php' ?>
 
@@ -57,8 +57,10 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <?php require 'partitions/_footer.php' ?>
+    <!-- FOOTER -->
+    <footer style="position: sticky; top: 100%" >
+            <?php require 'partitions/_footer.php' ?>
+        </footer>
   </body>
 
 </html>

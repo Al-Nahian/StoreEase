@@ -18,7 +18,7 @@ if (!isset($_SESSION['loggedin'])) {
     <title>Reports</title>
   </head>
 
-  <body>
+  <body style="min-height: 100vh;">
     <?php require 'partitions/_navi.php' ?>
     <main class="bg-slate-800 h-screen w-screen text-white pt-5">
       <h1 class="font-bold text-4xl text-center">Daily Report</h1>
@@ -42,7 +42,10 @@ if (!isset($_SESSION['loggedin'])) {
 
     </main>
 
-    <?php require 'partitions/_footer.php' ?>
+    <!-- FOOTER -->
+    <footer style="position: sticky; top: 100%">
+      <?php require 'partitions/_footer.php' ?>
+    </footer>
   </body>
 
 </html>

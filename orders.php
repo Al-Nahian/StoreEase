@@ -40,7 +40,7 @@ $result = mysqli_query($connect, $sql);
         <title>Order Item</title>
     </head>
 
-    <body class="bg-gray-800">
+    <body class="bg-gray-800" style="min-height: 100vh;" >
 
         <?php require 'partitions/_navi.php' ?>
 
@@ -98,7 +98,10 @@ $result = mysqli_query($connect, $sql);
             <?php require 'partitions/_pages.php' ?>
         </div>
         <!-- Footer -->
-        <?php require 'partitions/_footer.php' ?>
+        <footer style="position: sticky; top: 100%" >
+            <?php require 'partitions/_footer.php' ?>
+        </footer>
+        
     </body>
 
 </html>

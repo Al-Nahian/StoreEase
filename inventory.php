@@ -6,7 +6,7 @@ if (!isset($_SESSION['loggedin'])) {
 require "partitions/_dbconnect.php";
 
 $start = 0;
-$rows_per_page = 10;
+$rows_per_page = 15;
 
 $sql1 = "SELECT * FROM inventory";
 $records = mysqli_query($connect, $sql1);
@@ -49,73 +49,86 @@ if (isset($_REQUEST['addItem'])) {
     <title>Inventory</title>
   </head>
 
-  <body class="bg-gray-800 text-white">
+  <body class="bg-gray-800 text-white" style="min-height: 100vh" >
+    <main>
+      <?php require 'partitions/_navi.php' ?>
+      <div id="blur">
+        <h1 class="text-center font-bold text-6xl">Inventory</h1>
+        <h1 class="py-2 font-medium text-4xl pl-10"> Items Available
+        </h1>
+        <h1 class="py-2  font-light text-2xl pl-10">
+          <?php echo $num ?> Items
+        </h1>
 
-    <?php require 'partitions/_navi.php' ?>
-    <div id="blur">
-      <h1 class="text-center font-bold text-6xl">Inventory</h1>
-      <h1 class="py-2 font-medium text-4xl pl-10"> Items Available
-      </h1>
-      <h1 class="py-2  font-light text-2xl pl-10">
-        <?php echo $num ?> Items
-      </h1>
+        <section class=" container con pt-3">
+          <table width="100%" class=" border-slate-400 border table-fixed border-collapse ">
+            <thead class="bg-gray-100 text-black border-y-2 text-center font-bold">
+              <tr>
 
-      <section class=" container con pt-3">
-        <table width="100%" class=" border-slate-400 border table-fixed border-collapse ">
-          <thead class="bg-gray-100 text-black border-y-2 text-center font-bold">
-            <tr>
-
-              <td>Serial</td>
-              <td>Product</td>
-              <td>Price</td>
-              <td>In Stock</td>
-              <td>Edit Items</td>
-            </tr>
-          </thead>
-          <tbody class="font-medium">
-            <tr class="text-center">
-
-
-            <tr>
-              <?php
-              while ($row = mysqli_fetch_assoc($result)) {
-                ?>
-
-                <td class="text-center">
-                  <?php echo $row["serial"] ?>
-                </td>
-                <td class="text-center">
-                  <?php echo $row["product-name"] ?>
-                </td>
-                <td class="text-center">৳
-                  <?php echo $row["rate"] ?> TK
-                </td>
-                <td class="text-center">
-                  <?php echo $row["Stock"] ?> pieces
-                </td>
-                <td class="text-center"><a href="edit-item.php?serial=<?php echo $row["serial"]?>">Edit</a></td>
+                <td>Serial</td>
+                <td>Product</td>
+                <td>Price</td>
+                <td>In Stock</td>
+                <td>Edit Items</td>
               </tr>
-              <?php
-              }
-              ?>
-          </tbody>
-        </table>
+            </thead>
+            <tbody class="font-medium">
+              <tr class="text-center">
 
 
-        <div class="relative left-70 pt-4 my-4">
-          <a href="#"><button class=" rounded-xl bg-gray-50 pb-2 pl-3 pr-3 pt-2 font-medium text-gray-800" type="submit"
-              id="popup-show">Add Items</button>
-          </a>
-        </div>
+              <tr>
+                <?php
+                while ($row = mysqli_fetch_assoc($result)) {
+                  ?>
 
-        </table>
+                  <td class="text-center">
+                    <?php echo $row["serial"] ?>
+                  </td>
+                  <td class="text-center">
+                    <?php echo $row["product-name"] ?>
+                  </td>
+                  <td class="text-center">৳
+                    <?php echo $row["rate"] ?> TK
+                  </td>
+                  <td class="text-center">
+                    <?php echo $row["Stock"] ?> pieces
+                  </td>
+                  <td class="text-center"><a href="edit-item.php?serial=<?php echo $row["serial"] ?>">Edit</a></td>
+                </tr>
+                <?php
+                }
+                ?>
+            </tbody>
+          </table>
 
-      </section>
-      <?php require 'partitions/_pages.php' ?>
 
-      <!-- Footer -->
-      <?php require 'partitions/_footer.php' ?>
-    </div>
+          <div class="relative left-70 pt-4 my-4 flex justify-center">
+            <a href="#" class="px-5"><button
+                class=" rounded-xl bg-gray-50 pb-2 pl-3 pr-3 pt-2 font-medium text-gray-800" type="submit"
+                id="popup-show">Add Items</button>
+            </a>
+            <a href="#" class="px-5"><button
+                class=" rounded-xl bg-gray-50 pb-2 pl-3 pr-3 pt-2 font-medium text-gray-800" type="submit"
+                id="popup-show">Remove Items</button>
+            </a>
+            <a href="#" class="px-5"><button
+                class=" rounded-xl bg-gray-50 pb-2 pl-3 pr-3 pt-2 font-medium text-gray-800" type="submit"
+                id="popup-show">Change Stock</button>
+            </a>
+          </div>
+
+          </table>
+
+        </section>
+        <?php require 'partitions/_pages.php' ?>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="position: sticky; top: 100%" >
+            <?php require 'partitions/_footer.php' ?>
+        </footer>
+
 
     <!-- Add Items Pop Up -->
 
@@ -139,13 +152,17 @@ if (isset($_REQUEST['addItem'])) {
             <input type="text" id="stock" name="stock" placeholder="Enter Number Of Stock">
           </div>
           <div class="form-element">
-            <button name="addItem" >Submit</button>
+            <button name="addItem">Submit</button>
           </div>
         </form>
       </div>
     </div>
 
-<!-- Add Items Script -->
+
+    <!-- <div style="position:absolute; bottom: 0rem; width: 100%;">
+    </div> -->
+
+    <!-- Add Items Script -->
 
     <script>
       document.querySelector("#popup-show").addEventListener("click", function () {
@@ -164,6 +181,8 @@ if (isset($_REQUEST['addItem'])) {
         document.querySelector("#blur").classList.remove("blur");
       });
     </script>
+
+
   </body>
 
 </html>

@@ -36,9 +36,9 @@
           <div class="flex space-x-2">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a href="homepage.php"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Dashboard</a>
+              class="text-gray-300 hover:bg-gray-700 hover:text-white hover:decoration-transparent rounded-md px-3 py-2 text-sm font-medium">Dashboard</a>
             <a href="logout.php"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Logout</a>
+              class="text-gray-300 hover:bg-red-500 hover:text-white hover:decoration-transparent rounded-md px-3 py-2 text-sm font-medium">Logout</a>
           </div>
         </div>
       </div>

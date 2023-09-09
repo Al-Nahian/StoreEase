@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login</title>
   </head>
 
-  <body>
+  <body style="min-height: 100vh;" >
 
     <?php require 'partitions/_nav.php' ?>
     <?php
@@ -132,6 +132,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
       </div>
     </section>
+    <!-- FOOTER -->
+    <footer style="position: sticky; top: 100%" >
+            <?php require 'partitions/_footer.php' ?>
+        </footer>
   </body>
 
 </html>
